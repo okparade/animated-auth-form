@@ -1,0 +1,233 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+body{
+    background: whitesmoke;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+}
+#page{
+    height: 500px;
+    width: 1000px;
+    display: flex;
+    background: #ffffff;
+    position: relative;
+    padding: 5%;
+    border-radius: 18px;
+    box-shadow: 0 0 15px #888;
+    overflow: hidden;
+}
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    left: -25px;
+    box-sizing: border-box;
+    width: 50%; /* Takes up half the page width, leaving space for the panel */
+    height: fit-content;
+}
+#form-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 700px;
+    position: relative;
+    align-items: center;
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: opacity 0,3s ease;
+}
+#signup-form{
+    display: none;
+}
+#my-heading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+h1{
+    font-size: 45px;
+}
+.bar{
+    width: 58px;
+    height: 5px;
+    background-color: #000;
+    border-radius: 10px;
+}
+.input{
+    position: relative;
+    margin-bottom: 25px;
+}
+
+#username, #password, #new-username, #email, #new-password{
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #888;
+    font-size: 16px;
+    outline: none;
+    background: transparent;
+    padding: 12px 0;
+    margin-top: 20px;
+    transition: 0.3s ease-in;
+}
+label{
+    color: #777;
+    position: absolute;
+    left: 0;
+    top: 35px;
+    pointer-events: none;
+    transition: transform 0.3s ease, font-size 0.3s ease;
+}
+/* .label-icon{
+    position: absolute;
+    right: 1px;
+    top: 35px;
+    font-size: 18px;
+    pointer-events: none;
+} */
+
+/* .highlight-blue {
+    color: #00a2ff !important;
+    filter: grayscale(0%) !important;
+} */
+#footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} 
+
+.button{
+    width: 300px;
+    height: 50px;
+    background-color: #000;
+    color: #fff;
+    font-size: 17px;
+    border-radius: 50px;
+    transition: ease;
+}
+.welcome_section{
+    position: absolute;
+    color: white;
+    background: #000;
+
+    inset: 0;
+
+    clip-path: polygon(33% 0, 100% 0, 100% 100%, 93% 100%);
+    box-sizing: border-box;
+    z-index: 2;
+}
+h2{
+    font-size: 35px;
+    font-weight:900;
+}
+.welcome-content{
+    position: absolute;
+    top: 25%;
+    right: 7%;
+    text-align: right;
+    width: 250px;
+    line-height: 1.5;
+    /* 1. Add a transition-delay (e.g., 0.2s) so the black section moves first */
+    transition: transform 0.6s ease-in-out, right 0.6s ease-in-out, opacity 0.2s ease;
+    transition-delay: 0.2s, 0.2s, 0s; /* Delay the movement, but fade instantly */
+    opacity: 1; 
+}
+#my-text{
+    font-size: 18px;
+    float: right;
+}
+
+/* CSS Animations */
+@keyframes slideDownFromRightSide{
+    0%{
+        clip-path: polygon(33% 0, 100% 0, 100% 100%, 93% 100%);
+    }
+
+    100%{
+        clip-path: polygon(-100% 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+@keyframes slideUp{
+    0%{
+
+    }
+    100%{
+        transform: translateY(-22px);
+        color: #000;
+    }
+}
+@keyframes retractToLeft {
+    0% { 
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); 
+    }
+    100% { 
+        clip-path: polygon(0 0, 66% 0, 7% 100%, 0 100%); /* Mirrored diagonal on the left */
+    } 
+}
+@keyframes SlideDownFromLeftSide {
+    0%{
+        clip-path: polygon(0 0, 66% 0, 10% 100%, 0 100%);
+    }
+    100%{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+@keyframes RetractToTop{
+    0%{
+        clip-path: polygon(-100% 0, 100% 0, 100% 100%, 0 100%);
+    }
+    100%{
+        clip-path: polygon(33% 0, 100% 0, 100% 100%, 93% 100%);
+    }
+}
+
+/* JavaScrpit Class-Lists */
+.form{
+    display: block;
+}
+.hidden{
+    display: none !important;
+    opacity: 0;
+}
+.active{
+    display: flex !important;
+    flex-direction: column;
+    position: absolute;
+    right: 4%;
+    margin-top: -20px;
+}
+.border-blue {
+    border-bottom: 2px solid #00a2ff !important;
+}
+.welcome-content.shift-left {
+    right: 70%;
+    text-align: left;
+}
+.welcome-content.shift-left #my-text {
+    float: left;
+}
+.fade-out {
+    opacity: 0 !important;
+}
+.slide-up{
+    animation: slideUp 0.5s ease forwards;
+}
+.slide-down-from-right{
+    animation: slideDownFromRightSide 0.5s ease-in-out forwards
+}
+.retract-left {
+
+    animation: retractToLeft 0.6s ease-in-out forwards;
+}
+.slide-down-from-left{
+    animation: SlideDownFromLeftSide 0.5s ease forwards;
+}
+.retract-top{
+    animation: RetractToTop 0.6s ease-in-out forwards;
+}
