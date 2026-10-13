@@ -12,8 +12,9 @@ body{
     justify-content: center;
 }
 #page{
-    height: 500px;
-    width: 1000px;
+    width: 100%;
+    max-width: 1000px;
+    height: 650px;
     display: flex;
     background: #ffffff;
     position: relative;
@@ -21,16 +22,17 @@ body{
     border-radius: 18px;
     box-shadow: 0 0 15px #888;
     overflow: hidden;
+    margin-top: 5%;
 }
 .form-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
-    left: -25px;
     box-sizing: border-box;
     width: 50%; /* Takes up half the page width, leaving space for the panel */
     height: fit-content;
+    transition:  0.6s ease-in-out;
 }
 #form-wrapper{
     display: flex;
@@ -41,6 +43,9 @@ body{
     box-sizing: border-box;
     overflow: hidden;
     transition: opacity 0,3s ease;
+}
+#login-form{
+    margin-top: 18%;
 }
 #signup-form{
     display: none;
@@ -74,7 +79,7 @@ h1{
     background: transparent;
     padding: 12px 0;
     margin-top: 20px;
-    transition: 0.3s ease-in;
+    transition: 0.4s ease-in;
 }
 label{
     color: #777;
@@ -100,8 +105,17 @@ label{
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 10px;
 } 
-
+a{
+    text-decoration: none;
+    color: #000;
+    pointer-events: all;
+}
+a:hover{
+    color: #00a2ff;
+    transition: 0.3s ease-in-out;
+}
 .button{
     width: 300px;
     height: 50px;
@@ -200,7 +214,7 @@ h2{
     flex-direction: column;
     position: absolute;
     right: 4%;
-    margin-top: -20px;
+    margin-top: 10%;
 }
 .border-blue {
     border-bottom: 2px solid #00a2ff !important;
@@ -216,18 +230,94 @@ h2{
     opacity: 0 !important;
 }
 .slide-up{
-    animation: slideUp 0.5s ease forwards;
+    animation: slideUp 0.4s ease forwards;
 }
 .slide-down-from-right{
-    animation: slideDownFromRightSide 0.5s ease-in-out forwards
+    animation: slideDownFromRightSide 0.3s ease-in-out forwards
 }
 .retract-left {
 
     animation: retractToLeft 0.6s ease-in-out forwards;
 }
 .slide-down-from-left{
-    animation: SlideDownFromLeftSide 0.5s ease forwards;
+    animation: SlideDownFromLeftSide 0.3s ease forwards;
 }
 .retract-top{
     animation: RetractToTop 0.6s ease-in-out forwards;
+}
+
+/* Mobile Layout Configurations */
+@media (max-width: 768px) {
+    #page {
+        flex-direction: column; /* Stack vertically instead of side-by-side */
+        padding: 0;
+        min-height: 750px;
+    }
+
+    .form-container {
+        width: 100%; /* Forms now take full width of the phone screen */
+        padding: 40px 20px;
+        margin-top: auto; /* Pushes the form down, leaving room for the top welcome panel */
+    }
+
+    .form-wrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    #login-form{
+        margin-top: -380px;
+    }
+    #signup-form{
+        margin-top: -410px;
+    }
+
+    #username, #password, #new-username, #email, #new-password{
+        width: 120%;
+        margin-left: -10%;
+    }
+
+    label{
+        left: -20px;
+    }
+
+    .welcome_section {
+        width: 100%;
+        height: 35%; /* Only takes up the top third of the phone screen */
+        bottom: auto; /* Un-anchors the bottom edge */
+        
+        /* A mobile-friendly horizontal clip path (slanted slightly downward) */
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%) !important;
+        padding: 20px;
+    }
+
+    .welcome-content {
+        top: 50%;
+        left: 50%;
+        right: auto;
+        transform: translate(-50%, -50%); /* Centers the text perfectly inside the top black banner */
+        text-align: center;
+        width: 90%;
+    }
+
+    #my-text {
+        width: 100%;
+        float: none;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 36px; /* Scales down heading size for small screens */
+    }
+
+    h2 {
+        font-size: 28px;
+        text-align: center;
+    }
+    .active{
+        position: relative;
+        margin-left: 50px ;
+    }
 }
