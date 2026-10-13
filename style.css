@@ -321,3 +321,31 @@ h2{
         margin-left: 50px ;
     }
 }
+
+@media (max-width: 480px) {
+    #page {
+        min-height: 680px; /* Reduces overall box height to prevent scrolling on short phones */
+    }
+
+    .form-container {
+        padding: 25px 15px; /* Shrinks container spacing so input lines can stretch wider */
+        gap: 30px; /* Brings inputs closer together to save vertical space */
+    }
+
+    h1 {
+        font-size: 28px; /* Scales down "Login" / "Sign Up" headings so they don't look giant */
+    }
+
+    h2 {
+        font-size: 22px; /* Scales down the welcome heading */
+    }
+
+    #my-text {
+        font-size: 14px; /* Makes the description text easier to read in a tight space */
+    }
+
+    .button {
+        width: 100%; /* Makes the login button match input widths perfectly on tiny screens */
+        height: 45px;
+    }
+}
